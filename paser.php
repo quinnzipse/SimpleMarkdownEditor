@@ -5,7 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <title>Markdown Editor</title>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#before').change(function () {
                 submit();
@@ -23,14 +23,24 @@
                     content: data
                 }
             }).done(function (res) {
-                $("#after").html(res);
+                $("#after, #print").html(res);
             });
         }
 
     </script>
+    <style>
+        @media print {
+            .noPrint{
+                display: none;
+            }
+            .printable {
+                display: block !important;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark noPrint">
     <a class="navbar-brand" href="https://quinnzipse.dev">Markdown Editor</a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -42,20 +52,24 @@
         </li>
     </ul>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid noPrint">
     <div class="row mt-3">
         <div class="col-6">
             <div class="card p-3" style="height: 91vh;">
                 <textarea id="before" style="border: none; height: 100%; font-size: 1.1rem"><?php echo
                         "# Simple Markdown Editor\n---\nSimple and straight-forward markdown editor created using " .
                         "a simplistic front-end and [parsedown-extra](https://parsedown.org) in the back-end.\n\n" .
-                        "Created just for fun by [Quinn Zipse](https://quinnzipse.dev).\n" .
-                        "#### Technologies {.mt-4}\n---\n- **Bootstrap** for fast and easy styling\n" .
+                        "Created just for fun by [Quinn Zipse](https://quinnzipse.dev). Check me out on [GitHub]".
+                        "(https://github.com/quinnzipse)!\n" .
+                        "### Technologies {.mt-4}\n---\n- **Bootstrap** for fast and easy styling\n" .
                         "- **jQuery** to make ajax requests\n- **PHP** for the server side script\n" .
                         "- **parsedown-extra** to parse the markdown content.\n\n" .
-                        "###Getting Started {.mt-4}\n---\nIt's as easy as typing in the textbox to the left. " .
+                        "### Getting Started {.mt-4}\n---\nIt's as easy as typing in the textbox to the left. " .
                         "When you're ready for it to parse the content, unfocus on the textbox and *poof*, perfect.\n\n" .
-                        "For more helpful tips on styling check out [Markdown Guide](https://www.markdownguide.org/)"
+                        "For more helpful tips on styling check out [Markdown Guide](https://www.markdownguide.org/)\n\n" .
+                        "### What's New {.mt-4}\n---\n\n- **Printing!** Now, you'll only see the resulting HTML!\n\n" .
+                        "### Coming *Soon* {.mt-4}\n---\n\n- **Dark Mode** because let's be honest, no one wants to " .
+                        "look at a white background these days."
                     ?></textarea>
             </div>
         </div>
@@ -65,6 +79,8 @@
             </div>
         </div>
     </div>
+</div>
+<div class="printable" style="display: none" id="print">
 </div>
 </body>
 </html>
