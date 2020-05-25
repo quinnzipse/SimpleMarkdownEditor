@@ -80,6 +80,10 @@
                 display: block !important;
             }
         }
+
+        h1 {
+            margin-bottom: 2%;
+        }
     </style>
 </head>
 <body>
