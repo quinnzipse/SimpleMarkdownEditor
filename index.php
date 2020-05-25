@@ -64,6 +64,11 @@
         h1 {
             margin-bottom: 2%;
         }
+
+        nav {
+            padding-bottom: .3% !important;
+            padding-top: .3% !important;
+        }
     </style>
 </head>
 <body>
