@@ -10,11 +10,14 @@
     "For more helpful tips on styling check out [Markdown Guide](https://www.markdownguide.org/)\n\n" .
     "### What's New {.mt-4}\n---\n\n- **Printing!** Now, you'll only see the resulting HTML!\n" .
     "- **Dark Mode:** because let's be honest, no one wants to look at a white background these days\n" .
-    "- **Meta Data,** to make the links look more appetizing.\n\n" .
-    "### Coming *Soon* {.mt-4}\n---\n\n- **Remembering Data!** So when you switch between themes you don't " .
+    "- **Meta Data,** to make the links look more appetizing.\n- **Auto Dark/Light!** Checking to see if your brow" .
+    "ser is in dark or light mode.\n\n### Coming *Soon* {.mt-4}\n---\n\n" .
+    "- **Remembering Data!** So when you switch between themes you don't " .
     "loose your progress.\n- **Cookie Banner!** This website uses cookies to remember what theme you " .
     "prefer. So, we should probably include a cookie acceptance banner to comply with the [Cookie Law]" .
-    "(https://www.cookielaw.org/the-cookie-law/)." ?>
+    "(https://www.cookielaw.org/the-cookie-law/).\n";
+
+?>
 <html lang="en">
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
@@ -26,13 +29,22 @@
     ?>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <meta name="description" content="Easy to use, fast markdown parser with little overhead.">
+    <meta name="description"
+          content="Easy to use, simplistic online markdown editor with little overhead (and dark mode).">
     <meta name="keywords" content="Markdown, Parsedown, parsedown-extra, Free, Fast, Open Source, quinn zipse">
     <meta charset="UTF-8">
     <meta name="author" content="Quinn Zipse">
     <title>Markdown Editor</title>
     <script type="text/javascript">
         $(document).ready(function () {
+
+            <?php
+            if (!isset($_COOKIE['dark_theme'])) {
+                echo "if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) 
+                {setDarkCookie(true); window.location = 'https://markdown.quinnzipse.dev';}";
+            }
+            ?>
+
             $('#before').change(function () {
                 submit();
             });
@@ -50,7 +62,7 @@
                 }
             }).done(function (res) {
                 $("#after, #print").html(res);
-                <?php if (isset($_COOKIE['dark_theme']) && $_COOKIE == 'true') echo 'applyStyle()';?>
+                <?php if (isset($_COOKIE['dark_theme']) && $_COOKIE['dark_theme'] == 'true') echo 'applyStyle()';?>
             });
         }
 
@@ -80,9 +92,9 @@
                 if (isset($_COOKIE['dark_theme']) && $_COOKIE['dark_theme'] == 'true') {
                     echo '<a href="https://markdown.quinnzipse.dev/" class="nav-link btn btn-outline-dark  mr-3"
                    onclick="setDarkCookie(false)">
-                    <svg class="bi bi-sun" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M3.5 8a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0z"/>
-  <path fill-rule="evenodd" d="M8.202.28a.25.25 0 0 0-.404 0l-.91 1.255a.25.25 0 0 1-.334.067L5.232.79a.25.25 0 0 0-.374.155l-.36 1.508a.25.25 0 0 1-.282.19l-1.532-.245a.25.25 0 0 0-.286.286l.244 1.532a.25.25 0 0 1-.189.282l-1.509.36a.25.25 0 0 0-.154.374l.812 1.322a.25.25 0 0 1-.067.333l-1.256.91a.25.25 0 0 0 0 .405l1.256.91a.25.25 0 0 1 .067.334L.79 10.768a.25.25 0 0 0 .154.374l1.51.36a.25.25 0 0 1 .188.282l-.244 1.532a.25.25 0 0 0 .286.286l1.532-.244a.25.25 0 0 1 .282.189l.36 1.508a.25.25 0 0 0 .374.155l1.322-.812a.25.25 0 0 1 .333.067l.91 1.256a.25.25 0 0 0 .405 0l.91-1.256a.25.25 0 0 1 .334-.067l1.322.812a.25.25 0 0 0 .374-.155l.36-1.508a.25.25 0 0 1 .282-.19l1.532.245a.25.25 0 0 0 .286-.286l-.244-1.532a.25.25 0 0 1 .189-.282l1.508-.36a.25.25 0 0 0 .155-.374l-.812-1.322a.25.25 0 0 1 .067-.333l1.256-.91a.25.25 0 0 0 0-.405l-1.256-.91a.25.25 0 0 1-.067-.334l.812-1.322a.25.25 0 0 0-.155-.374l-1.508-.36a.25.25 0 0 1-.19-.282l.245-1.532a.25.25 0 0 0-.286-.286l-1.532.244a.25.25 0 0 1-.282-.189l-.36-1.508a.25.25 0 0 0-.374-.155l-1.322.812a.25.25 0 0 1-.333-.067L8.203.28zM8 2.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/>
+                    <svg class="bi bi-brightness-high-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="8" cy="8" r="4"/>
+  <path fill-rule="evenodd" d="M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
 </svg>
                     <small>Switch to Light Mode</small>
                 </a>';
@@ -122,5 +134,6 @@ if (isset($_COOKIE['dark_theme']) && $_COOKIE['dark_theme'] == 'true') {
     require 'parser_light.php';
 }
 ?>
+<?php echo get_browser(); ?>
 </body>
 </html>

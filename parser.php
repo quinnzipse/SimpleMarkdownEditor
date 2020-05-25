@@ -1,18 +1,18 @@
 <script>
     function applyStyle() {
-        $('div p, ul').each(function () {
+        $('#after p, ul').each(function () {
             $(this).addClass('text-light');
         });
-        $('div a').each(function () {
+        $('#after a').each(function () {
             $(this).addClass('text-info');
         });
-        $('div h1,h2,h3,h4,h5,h6').each(function () {
+        $('#after h1,h2,h3,h4,h5,h6').each(function () {
+            $(this).addClass('text-white mt-4');
+        });
+        $('#after trong, em').each(function () {
             $(this).addClass('text-white');
         });
-        $('strong, em').each(function () {
-            $(this).addClass('text-white');
-        });
-        $('hr').each(function () {
+        $('#after hr').each(function () {
             $(this).addClass('bg-light');
         });
     }
@@ -24,8 +24,11 @@
     }
 
     @media print {
-        .printable * {
-            color: initial;
+        .printable{
+            background-color: white;
+        }
+        .printable h1,h2,h3,h4,h5,h6 {
+            color: black;
         }
 
         .printable a {
@@ -48,5 +51,5 @@
         </div>
     </div>
 </div>
-<div class="printable" style="display: none" id="print">
+<div class="printable vh-100" style="display: none; background-color: white !important; color: black !important;" id="print">
 </div>
