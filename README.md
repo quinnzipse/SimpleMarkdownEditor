@@ -1,13 +1,13 @@
 # Simple Markdown Editor
-Simple and straight-forward markdown editor created using a simplistic front-end and [parsedown-extra](https://parsedown.org) in the back-end.
+Simple and straight-forward markdown editor created with speed and simplicity in mind. You can find the source code on [GitHub](https://github.com/quinnzipse/SimpleMarkdownEditor.git). 
 
 Created just for fun by [Quinn Zipse](https://quinnzipse.dev). Check me out on [GitHub](https://github.com/quinnzipse)!
-### Technologies 
+### Technologies
 ---
 - **Bootstrap** for fast and easy styling
 - **jQuery** to make ajax requests
 - **PHP** for the server side script
-- **parsedown-extra** to parse the markdown content.
+- **[parsedown-extra](https://parsedown.org)** to parse the markdown content.
 
 ### Getting Started
 ---

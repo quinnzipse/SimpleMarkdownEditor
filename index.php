@@ -1,23 +1,3 @@
-<?php const _MESSAGE = "# Simple Markdown Editor\n---\nSimple and straight-forward markdown editor created using " .
-    "a simplistic front-end and [parsedown-extra](https://parsedown.org) in the back-end.\n\n" .
-    "Created just for fun by [Quinn Zipse](https://quinnzipse.dev). Check me out on [GitHub]" .
-    "(https://github.com/quinnzipse)!\n" .
-    "### Technologies {.mt-4}\n---\n- **Bootstrap** for fast and easy styling\n" .
-    "- **jQuery** to make ajax requests\n- **PHP** for the server side script\n" .
-    "- **parsedown-extra** to parse the markdown content.\n\n" .
-    "### Getting Started {.mt-4}\n---\nIt's as easy as typing in the textbox to the left. " .
-    "When you're ready for it to parse the content, unfocus on the textbox and *poof*, perfect.\n\n" .
-    "For more helpful tips on styling check out [Markdown Guide](https://www.markdownguide.org/)\n\n" .
-    "### What's New {.mt-4}\n---\n\n- **Printing!** Now, you'll only see the resulting HTML!\n" .
-    "- **Dark Mode:** because let's be honest, no one wants to look at a white background these days\n" .
-    "- **Meta Data,** to make the links look more appetizing.\n- **Auto Dark/Light!** Checking to see if your brow" .
-    "ser is in dark or light mode.\n\n### Coming *Soon* {.mt-4}\n---\n\n" .
-    "- **Remembering Data!** So when you switch between themes you don't " .
-    "loose your progress.\n- **Cookie Banner!** This website uses cookies to remember what theme you " .
-    "prefer. So, we should probably include a cookie acceptance banner to comply with the [Cookie Law]" .
-    "(https://www.cookielaw.org/the-cookie-law/).\n";
-
-?>
 <html lang="en">
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"

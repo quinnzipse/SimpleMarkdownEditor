@@ -24,10 +24,11 @@
     }
 
     @media print {
-        .printable{
+        .printable {
             background-color: white;
         }
-        .printable h1,h2,h3,h4,h5,h6 {
+
+        .printable h1, h2, h3, h4, h5, h6 {
             color: black;
         }
 
@@ -41,7 +42,10 @@
         <div class="col-6">
             <div class="card p-2" style="height: 91vh;">
                 <textarea id="before" class="bg-dark text-white p-2" onfocus=""
-                          style="border: none; height: 100%; font-size: 1.1rem"><?php echo _MESSAGE ?></textarea>
+                          style="border: none; height: 100%; font-size: 1.1rem"><?php $file = fopen('README.md', 'r');
+                    echo fread($file, filesize('README.md'));
+                    fclose($file);
+                    ?></textarea>
             </div>
         </div>
         <div class="col-6">
@@ -51,5 +55,6 @@
         </div>
     </div>
 </div>
-<div class="printable vh-100" style="display: none; background-color: white !important; color: black !important;" id="print">
+<div class="printable vh-100" style="display: none; background-color: white !important; color: black !important;"
+     id="print">
 </div>
